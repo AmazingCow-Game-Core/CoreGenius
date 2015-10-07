@@ -54,85 +54,77 @@ class GameCore
 {
     // Enums/Constants/Typedefs //
 public:
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief When GameCore is constructed using the kRandomSeed, it will
+    ///generate an actual seed based in random factors. This is a meta seed
+    ///only to indicating the a random seed must be generated. 
+    ///@see getSeed.
     static const int kRandomSeed;
     
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Defines the possible states for GameCore.
+    ///@see checkSideGuess, getStatus, getCurrentSideGuessIndex.
     enum class Status 
     {
-        CorrectAndContinue,
-        CorrectAndFinish,
-        Wrong,
-        None
+        CorrectAndContinue, ///< Player hit the side - Still Has other sides.
+        CorrectAndFinish,   ///< Player hit the side - Sequence is over.
+        Wrong,              ///< Player miss the side - Game is Over.
+        None                ///< Game is not stated yet.
     };
     
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Just to easy the typing... "A sequence of ... (sides)".
     typedef std::vector<int> Sequence;
     
 
     // CTOR/DTOR //
 public:
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Construct the Game Core. 
+    ///@warning No sanity checks are made on the arguments.
+    ///@param sidesCount How many sides the core will have.
+    ///@param seed The seed that will be used by the random number genrator.
+    ///If using GameCore::kRandomSeed a random seed will be used each time.
+    ///@see kRandomSeed.
     GameCore(int sidesCount, int seed = kRandomSeed);
     
 
     // Public Methods //
 public:
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Selects a random side of possibles sides 
+    ///and append it to the current sequence.
+    ///@returns The side selected.
     int generateNextSide();
     
     
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Check if the player's side guess matches 
+    ///with the side at the current index in sequence.
+    ///@param guessSide The player's guess.
+    ///@returns A status indicating the status of game.
+    ///@see Status, getCurrentSideGuessIndex, getSequence
     Status checkSideGuess(int guessSide);
 
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Gets the current side index in the sequence.
+    ///@returns The current index.
+    ///@see checkSideIndex, generateNextSide
     int getCurrentSideGuessIndex() const;
     
 
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Gets the whole sequence.
+    ///@returns The whole sequence.
     const Sequence& getSequence() const;
 
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Gets the current sequence size.
+    ///@returns The size of sequence.
+    ///@see getCurrentSideIndex, generateNextSide.
     int getSequenceSize() const;
     
     
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Gets the current state of game.
+    ///@returns The state of game.
+    ///@see Status.
     Status getStatus() const;
     
-    ///@brief 
-    ///@param
-    ///@returns
-    ///@see
+    ///@brief Gets the actual seed used.
+    ///@returns If GameCore is constructed using the GameCore::kRandomSeed
+    ///the actual seed used will be returned here.
+    ///@see kRandomSeed.
     int getSeed() const;
     
 

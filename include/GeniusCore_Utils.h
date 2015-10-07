@@ -42,9 +42,19 @@
 #ifndef __GeniusCore_include_GeniusCore_Utils_h__
 #define __GeniusCore_include_GeniusCore_Utils_h__
 
-//COWTODO: Comment.
+//All classes of this core is placed inside this namespace.
+//We use MACROS so is easier to change if needed. 
+//Is (in our opinion) more explicit. 
+//And finally the editors will not reformat the code.
 #define NS_GENIUSCORE_BEGIN namespace GeniusCore {
 #define NS_GENIUSCORE_END   }
 #define USING_NS_GENIUSCORE using namespace GeniusCore
+
+//The core version number.
+#define COW_GENIUSCORE_VERSION_MAJOR    "0"
+#define COW_GENIUSCORE_VERSION_MINOR    "1"
+#define COW_GENIUSCORE_VERSION_REVISION "0"
+
+#define COW_GENIUSCORE_VERSION "0.1.0"
 
 #endif // defined(__GeniusCore_include_GeniusCore_Utils_h__) //
