@@ -107,4 +107,4 @@ int main(int argc, const char *argv[])
     }
 }
 
-#endif // __AMAZINGCORE_LIGHTSOFFCORE_TEST_ENABLED__ //
+#endif // __AMAZINGCORE_GENIUSCORE_TEST_ENABLED__ //
