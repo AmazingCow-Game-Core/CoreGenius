@@ -3,7 +3,7 @@
 //               ████████                                                     //
 //             ██        ██                                                   //
 //            ███  █  █  ███                                                  //
-//            █ █        █ █        GeniusCore_Utils.h                        //
+//            █ █        █ █        main.cpp                                  //
 //             ████████████         Genius Core                               //
 //           █              █       Copyright (c) 2015 AmazingCow             //
 //          █     █    █     █      www.AmazingCow.com                        //
@@ -39,22 +39,72 @@
 //                                  Enjoy :)                                  //
 //----------------------------------------------------------------------------//
 
-#ifndef __GeniusCore_include_GeniusCore_Utils_h__
-#define __GeniusCore_include_GeniusCore_Utils_h__
 
-//All classes of this core is placed inside this namespace.
-//We use MACROS so is easier to change if needed.
-//Is (in our opinion) more explicit.
-//And finally the editors will not reformat the code.
-#define NS_GENIUSCORE_BEGIN namespace GeniusCore {
-#define NS_GENIUSCORE_END   }
-#define USING_NS_GENIUSCORE using namespace GeniusCore
+//This guard is to ease the usage of the GeniusCore,
+//so it's users won't need to worry about removing any files
+//since is very unlikely that this flag is defined elsewhere.
+#ifdef __AMAZINGCORE_GENIUSCORE_TEST_ENABLED__
 
-//The core version number.
-#define COW_GENIUSCORE_VERSION_MAJOR    "0"
-#define COW_GENIUSCORE_VERSION_MINOR    "1"
-#define COW_GENIUSCORE_VERSION_REVISION "1"
+#include <iostream>
+#include <cstdlib>
+#include "../include/GeniusCore.h"
 
-#define COW_GENIUSCORE_VERSION "0.1.1"
+USING_NS_GENIUSCORE;
+using namespace std;
 
-#endif // defined(__GeniusCore_include_GeniusCore_Utils_h__) //
+void usage()
+{
+    cout << "Amazing Cow - GeniusCore Test Game" << endl;
+    cout << "Usage:" << endl;
+    cout << "  <binary-name> [seed]" << endl;
+    cout << "Ex: ./testgame 2 //Init with seed 2" << endl;
+
+    exit(1);
+}
+
+int main(int argc, const char *argv[])
+{
+    if(argc != 2)
+        usage();
+
+    auto seed = atoi(argv[1]);
+
+    GameCore core(4, seed);
+    core.generateNextSide();
+
+    while(core.getStatus() != GameCore::Status::Wrong)
+    {
+        //Print the sequence.
+        cout << "Sequence is:" << endl;
+        for(auto side : core.getSequence())
+            cout << side << " ";
+        cout << endl;
+
+        do {
+            //Display the prompt.
+            cout << "Guess ("
+                 << core.getCurrentSideGuessIndex()
+                 << ") of ( "
+                 << core.getSequenceSize()
+                 << "):" << endl;
+            cout << "Guess: ";
+
+            int guess;
+            cin >> guess;
+
+            core.checkSideGuess(guess);
+        } while(core.getStatus() == GameCore::Status::CorrectAndContinue);
+
+        if(core.getStatus() == GameCore::Status::CorrectAndFinish)
+        {
+            cout << "Congrats - Lets continue" << endl;
+            core.generateNextSide();
+        }
+        else
+        {
+            cout << "OHHHH no..." << endl;
+        }
+    }
+}
+
+#endif // __AMAZINGCORE_LIGHTSOFFCORE_TEST_ENABLED__ //

@@ -3,7 +3,7 @@
 //               ████████                                                     //
 //             ██        ██                                                   //
 //            ███  █  █  ███                                                  //
-//            █ █        █ █        GameCore.cpp                              // 
+//            █ █        █ █        GameCore.cpp                              //
 //             ████████████         Genius Core                               //
 //           █              █       Copyright (c) 2015 AmazingCow             //
 //          █     █    █     █      www.AmazingCow.com                        //
@@ -55,7 +55,7 @@ const int GameCore::kRandomSeed = -1;
 GameCore::GameCore(int sidesCount, int seed /* kRandomSeed */) :
     //m_sequence - Set in generateNextSide
     m_status      (Status::None),
-    m_currentIndex(0), 
+    m_currentIndex(0),
     m_sidesCount  (sidesCount),
     m_seed        (seed) //Could change in initRandomGenerator if == kRandomSeed
 {
@@ -66,39 +66,41 @@ GameCore::GameCore(int sidesCount, int seed /* kRandomSeed */) :
 // Public Methods //
 int GameCore::generateNextSide()
 {
-    //COWTODO: Comment.
+    //Generate a random side in range (0, m_sidesCount).
     int side = rand() % m_sidesCount;
     m_sequence.push_back(side);
-    
+
     return side;
 }
 
 GameCore::Status GameCore::checkSideGuess(int guessSide)
 {
-    //COWTODO: Comment.
+    //Check if player hit or miss the current side.
+    //If player hit, check if is sequence is over and
+    //then generate a new side.
     auto currentSide = m_sequence[m_currentIndex];
-    
+
     //Player miss the side.
     if(currentSide != guessSide)
     {
         m_status = Status::Wrong;
         m_currentIndex = 0;
     }
-    
+
     //Player hit and the guess is the last of current sequence.
     else if(m_currentIndex == getSequenceSize() - 1)
     {
         m_status = Status::CorrectAndFinish;
         m_currentIndex = 0;
     }
-    
+
     //Player hit but the sequence is not over yet.
     else
     {
         m_status = Status::CorrectAndContinue;
         ++m_currentIndex;
     }
-    
+
     return m_status;
 }
 int GameCore::getCurrentSideGuessIndex() const
@@ -128,7 +130,8 @@ int GameCore::getSeed() const
 // Private Methods //
 void GameCore::initRandomGenerator()
 {
-    //COWTODO: Comment.
+    //Check if user set a seed, if not get a new one
+    //and initialize the random number generator.
     if(m_seed == GameCore::kRandomSeed)
         m_seed = static_cast<int>(time(nullptr));
 
