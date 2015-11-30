@@ -4,7 +4,7 @@
 //             ██        ██                                                   //
 //            ███  █  █  ███                                                  //
 //            █ █        █ █        GameCore.h                                // 
-//             ████████████         Genius Core                               //
+//             ████████████         CoreGenius                                //
 //           █              █       Copyright (c) 2015 AmazingCow             //
 //          █     █    █     █      www.AmazingCow.com                        //
 //          █     █    █     █                                                //
@@ -39,16 +39,16 @@
 //                                  Enjoy :)                                  //
 //----------------------------------------------------------------------------//
 
-#ifndef __GeniusCore_include_GameCore_h__
-#define __GeniusCore_include_GameCore_h__
+#ifndef __CoreGenius_include_GameCore_h__
+#define __CoreGenius_include_GameCore_h__
 
 //std
 #include <vector>
 #include <random>
-//GeniusCore.
-#include "GeniusCore_Utils.h"
+//CoreGenius
+#include "CoreGenius_Utils.h"
 
-NS_GENIUSCORE_BEGIN
+NS_COREGENIUS_BEGIN
 
 class GameCore
 {
@@ -144,5 +144,5 @@ private:
     int m_seed;
 };
 
-NS_GENIUSCORE_END
-#endif // defined(__GeniusCore_include_GameCore_h__) //
+NS_COREGENIUS_END
+#endif // defined(__CoreGenius_include_GameCore_h__) //

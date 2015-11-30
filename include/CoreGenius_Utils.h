@@ -3,8 +3,8 @@
 //               ████████                                                     //
 //             ██        ██                                                   //
 //            ███  █  █  ███                                                  //
-//            █ █        █ █        GeniusCore.h                              // 
-//             ████████████         Genius Core                               //
+//            █ █        █ █        CoreGenius_Utils.h                        //
+//             ████████████         CoreGenius                                //
 //           █              █       Copyright (c) 2015 AmazingCow             //
 //          █     █    █     █      www.AmazingCow.com                        //
 //          █     █    █     █                                                //
@@ -39,15 +39,22 @@
 //                                  Enjoy :)                                  //
 //----------------------------------------------------------------------------//
 
-#ifndef __GeniusCore_include_GeniusCore_h__
-#define __GeniusCore_include_GeniusCore_h__
+#ifndef __CoreGenius_include_CoreGenius_Utils_h__
+#define __CoreGenius_include_CoreGenius_Utils_h__
 
-//This is a umbrella header indented to ease the inclusion of all files
-//needed to use the Genius Game Core.
-//While is possible to include each one separately is very easy just to include 
-//this file alone and let it makes all the job. :)
+//All classes of this core is placed inside this namespace.
+//We use MACROS so is easier to change if needed.
+//Is (in our opinion) more explicit.
+//And finally the editors will not reformat the code.
+#define NS_COREGENIUS_BEGIN namespace CoreGenius {
+#define NS_COREGENIUS_END   }
+#define USING_NS_COREGENIUS using namespace CoreGenius
 
-#include "GeniusCore_Utils.h"
-#include "GameCore.h"
+//The core version number.
+#define COW_COREGENIUS_VERSION_MAJOR    "0"
+#define COW_COREGENIUS_VERSION_MINOR    "2"
+#define COW_COREGENIUS_VERSION_REVISION "0"
 
-#endif // defined(__GeniusCore_include_GeniusCore_h__) //
+#define COW_COREGENIUS_VERSION "0.1.1"
+
+#endif // defined(__CoreGenius_include_CoreGenius_Utils_h__) //

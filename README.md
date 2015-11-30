@@ -11,19 +11,11 @@ game alone.
 
 ## Files:
 We tried to separated the files in a very organized form.   
-Here is a list of them and it's intend.
+Here is a list of them:
 
-```GeniusCore.h``` : The main header, is a umbrella header that includes all 
-other stuff that is needed to use this Core.   
-While is possible to include each file separately, we find that is 
-easier to just include this file.
-
-```GeniusCore_Utils.h``` : This file will define some utilities used across the 
-other files of this Core.   
-Now it just define a namespace macro that is used for this Core. (We learned 
-this from cocos2d-x and liked a lot)
-
-```GameCore.h``` : The game itself. 
+* ```CoreGenius.h```
+* ```CoreGenius_Utils.h```
+* ```GameCore.h```
 
 ## More info:
 We tried to document the Core extensively, so we think that is pretty ease to 

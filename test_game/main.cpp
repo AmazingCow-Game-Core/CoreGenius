@@ -4,7 +4,7 @@
 //             ██        ██                                                   //
 //            ███  █  █  ███                                                  //
 //            █ █        █ █        main.cpp                                  //
-//             ████████████         Genius Core                               //
+//             ████████████         CoreGenius                                //
 //           █              █       Copyright (c) 2015 AmazingCow             //
 //          █     █    █     █      www.AmazingCow.com                        //
 //          █     █    █     █                                                //
@@ -40,21 +40,21 @@
 //----------------------------------------------------------------------------//
 
 
-//This guard is to ease the usage of the GeniusCore,
+//This guard is to ease the usage of the CoreGenius,
 //so it's users won't need to worry about removing any files
 //since is very unlikely that this flag is defined elsewhere.
-#ifdef __AMAZINGCORE_GENIUSCORE_TEST_ENABLED__
+#ifdef __AMAZINGCORE_COREGENIUS_TEST_ENABLED__
 
 #include <iostream>
 #include <cstdlib>
-#include "../include/GeniusCore.h"
+#include "../include/CoreGenius.h"
 
-USING_NS_GENIUSCORE;
+USING_NS_COREGENIUS;
 using namespace std;
 
 void usage()
 {
-    cout << "Amazing Cow - GeniusCore Test Game" << endl;
+    cout << "Amazing Cow - CoreGenius Test Game" << endl;
     cout << "Usage:" << endl;
     cout << "  <binary-name> [seed]" << endl;
     cout << "Ex: ./testgame 2 //Init with seed 2" << endl;
@@ -107,4 +107,4 @@ int main(int argc, const char *argv[])
     }
 }
 
-#endif // __AMAZINGCORE_GENIUSCORE_TEST_ENABLED__ //
+#endif // __AMAZINGCORE_CoreGenius_TEST_ENABLED__ //

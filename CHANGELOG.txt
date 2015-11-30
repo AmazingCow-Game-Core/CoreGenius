@@ -1,0 +1,9 @@
+v0.1.0 ????
+v0.1.1 ????
+
+v0.2.0 - [Nov 30 2015]
+    - Change the name of project from GeniusCore to CoreGenius following
+      the convention of AmazingCow Games.
+    - Start update the CHANGELOG.
+    - Fix the README.
+    

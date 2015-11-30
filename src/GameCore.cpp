@@ -4,7 +4,7 @@
 //             ██        ██                                                   //
 //            ███  █  █  ███                                                  //
 //            █ █        █ █        GameCore.cpp                              //
-//             ████████████         Genius Core                               //
+//             ████████████         CoreGenius                                //
 //           █              █       Copyright (c) 2015 AmazingCow             //
 //          █     █    █     █      www.AmazingCow.com                        //
 //          █     █    █     █                                                //
@@ -46,7 +46,7 @@
 #include <cstdlib>
 
 //Usings
-USING_NS_GENIUSCORE;
+USING_NS_COREGENIUS;
 
 // Enums/Constants/Typedefs //
 const int GameCore::kRandomSeed = -1;
