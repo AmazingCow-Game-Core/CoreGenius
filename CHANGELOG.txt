@@ -6,4 +6,11 @@ v0.2.0 - [Nov 30 2015]
       the convention of AmazingCow Games.
     - Start update the CHANGELOG.
     - Fix the README.
+
+v0.2.1 - [Jan 19 2016]
+    - Update the license headers.
+    - Fix the version numbers on CoreGenius_Utils.h
+    - Fix the #endif comment on main.cpp
+    - Add the "comment separators" on README.md
+    
     
