@@ -38,7 +38,6 @@
 //                                  Enjoy :)                                  //
 //----------------------------------------------------------------------------//
 
-
 //Header
 #include "../include/GameCore.h"
 //std
@@ -59,7 +58,6 @@ GameCore::GameCore(int sidesCount, int seed /* kRandomSeed */) :
     m_sidesCount  (sidesCount),
     m_seed        (seed) //Could change in initRandomGenerator if == kRandomSeed
 {
-    //COWTODO: Comment.
     initRandomGenerator();
 }
 
