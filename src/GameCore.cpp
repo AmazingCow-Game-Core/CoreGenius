@@ -64,6 +64,7 @@ GameCore::GameCore(int sidesCount, int seed /* kRandomSeed */) :
 // Public Methods //
 int GameCore::generateNextSide()
 {
+    //COWTODO: Start using CoreRandom.
     //Generate a random side in range (0, m_sidesCount).
     int side = rand() % m_sidesCount;
     m_sequence.push_back(side);
