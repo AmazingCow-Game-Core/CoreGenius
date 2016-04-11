@@ -1,5 +1,22 @@
-v0.1.0 ????
-v0.1.1 ????
+v0.3.0 - [April 10 2016]
+    - Starting using the CoreRandom to generate the random numbers.
+    - Update the README
+        - Add new sections
+        - Add some COWTODOs
+        - Add more content.
+        - Add separators.
+    - Add some COWTODOs in the project.
+    - Update the Makefile to CoreRandom.
+    - Update the CHANGELOG
+        - Reverse the sort order (New entries at top).
+        - Add separators.
+
+--------------------------------------------------------------------------------
+v0.2.1 - [Jan 19 2016]
+    - Update the license headers.
+    - Fix the version numbers on CoreGenius_Utils.h
+    - Fix the #endif comment on main.cpp
+    - Add the "comment separators" on README.md
 
 v0.2.0 - [Nov 30 2015]
     - Change the name of project from GeniusCore to CoreGenius following
@@ -7,10 +24,6 @@ v0.2.0 - [Nov 30 2015]
     - Start update the CHANGELOG.
     - Fix the README.
 
-v0.2.1 - [Jan 19 2016]
-    - Update the license headers.
-    - Fix the version numbers on CoreGenius_Utils.h
-    - Fix the #endif comment on main.cpp
-    - Add the "comment separators" on README.md
-    
-    
+--------------------------------------------------------------------------------
+v0.1.1 ????
+v0.1.0 ????
