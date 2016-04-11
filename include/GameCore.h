@@ -46,53 +46,51 @@
 #include <random>
 //CoreGenius
 #include "CoreGenius_Utils.h"
+//CoreRandom
+#include "CoreRandom.h"
+
 
 NS_COREGENIUS_BEGIN
 
 class GameCore
 {
-    // Enums/Constants/Typedefs //
+    // Enums / Constants / Typedefs //
 public:
-    ///@brief When GameCore is constructed using the kRandomSeed, it will
-    ///generate an actual seed based in random factors. This is a meta seed
-    ///only to indicating the a random seed must be generated. 
-    ///@see getSeed.
-    static const int kRandomSeed;
-    
     ///@brief Defines the possible states for GameCore.
     ///@see checkSideGuess, getStatus, getCurrentSideGuessIndex.
-    enum class Status 
+    enum class Status
     {
-        CorrectAndContinue, ///< Player hit the side - Still Has other sides.
-        CorrectAndFinish,   ///< Player hit the side - Sequence is over.
+        CorrectAndContinue, ///< Player hit the side  - Still Has other sides.
+        CorrectAndFinish,   ///< Player hit the side  - Sequence is over.
         Wrong,              ///< Player miss the side - Game is Over.
         None                ///< Game is not stated yet.
     };
-    
+
     ///@brief Just to easy the typing... "A sequence of ... (sides)".
     typedef std::vector<int> Sequence;
-    
+
 
     // CTOR/DTOR //
 public:
-    ///@brief Construct the Game Core. 
+    ///@brief Construct the Game Core.
     ///@warning No sanity checks are made on the arguments.
     ///@param sidesCount How many sides the core will have.
     ///@param seed The seed that will be used by the random number genrator.
-    ///If using GameCore::kRandomSeed a random seed will be used each time.
-    ///@see kRandomSeed.
-    GameCore(int sidesCount, int seed = kRandomSeed);
-    
+    ///If using CoreRandom::Random::kRandomSeed a random seed
+    ///will be used each time.
+    ///@see CoreRandom::Random::kRandomSeed.
+    GameCore(int sidesCount, int seed = CoreRandom::Random::kRandomSeed);
+
 
     // Public Methods //
 public:
-    ///@brief Selects a random side of possibles sides 
+    ///@brief Selects a random side of possibles sides
     ///and append it to the current sequence.
     ///@returns The side selected.
     int generateNextSide();
-    
-    
-    ///@brief Check if the player's side guess matches 
+
+
+    ///@brief Check if the player's side guess matches
     ///with the side at the current index in sequence.
     ///@param guessSide The player's guess.
     ///@returns A status indicating the status of game.
@@ -103,7 +101,7 @@ public:
     ///@returns The current index.
     ///@see checkSideIndex, generateNextSide
     int getCurrentSideGuessIndex() const;
-    
+
 
     ///@brief Gets the whole sequence.
     ///@returns The whole sequence.
@@ -113,34 +111,30 @@ public:
     ///@returns The size of sequence.
     ///@see getCurrentSideIndex, generateNextSide.
     int getSequenceSize() const;
-    
-    
+
+
     ///@brief Gets the current state of game.
     ///@returns The state of game.
     ///@see Status.
     Status getStatus() const;
-    
-    ///@brief Gets the actual seed used.
-    ///@returns If GameCore is constructed using the GameCore::kRandomSeed
-    ///the actual seed used will be returned here.
-    ///@see kRandomSeed.
-    int getSeed() const;
-    
 
-    // Private Methods //
-private:
-    void initRandomGenerator();
-    
+    ///@brief Gets the actual seed used.
+    ///@returns If GameCore is constructed using the
+    ///CoreRandom::Random::kRandomSeed the actual seed
+    ///used will be returned here.
+    ///@see CoreRandom::Random::kRandomSeed.
+    int getSeed() const;
 
     // iVars //
 private:
     Sequence m_sequence;
     Status   m_status;
-    
+
     int m_currentIndex;
-    
+
     int m_sidesCount;
-    int m_seed;
+
+    CoreRandom::Random m_random;
 };
 
 NS_COREGENIUS_END
