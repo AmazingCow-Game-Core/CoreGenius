@@ -40,33 +40,26 @@
 
 //Header
 #include "../include/GameCore.h"
-//std
-#include <ctime>
-#include <cstdlib>
 
 //Usings
 USING_NS_COREGENIUS;
 
-// Enums/Constants/Typedefs //
-const int GameCore::kRandomSeed = -1;
-
 // CTOR/DTOR //
 GameCore::GameCore(int sidesCount, int seed /* kRandomSeed */) :
     //m_sequence - Set in generateNextSide
-    m_status      (Status::None),
-    m_currentIndex(0),
-    m_sidesCount  (sidesCount),
-    m_seed        (seed) //Could change in initRandomGenerator if == kRandomSeed
+    m_status       (Status::None),
+    m_currentIndex (0),
+    m_sidesCount   (sidesCount),
+    m_random       (seed)
 {
-    initRandomGenerator();
+    //Empty...
 }
 
 // Public Methods //
 int GameCore::generateNextSide()
 {
-    //COWTODO: Start using CoreRandom.
     //Generate a random side in range (0, m_sidesCount).
-    int side = rand() % m_sidesCount;
+    int side = m_random.next(0, m_sidesCount);
     m_sequence.push_back(side);
 
     return side;
@@ -123,16 +116,5 @@ GameCore::Status GameCore::getStatus() const
 
 int GameCore::getSeed() const
 {
-    return m_seed;
-}
-
-// Private Methods //
-void GameCore::initRandomGenerator()
-{
-    //Check if user set a seed, if not get a new one
-    //and initialize the random number generator.
-    if(m_seed == GameCore::kRandomSeed)
-        m_seed = static_cast<int>(time(nullptr));
-
-    srand(m_seed);
+    return m_random.getSeed();
 }
