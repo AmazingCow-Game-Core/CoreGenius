@@ -86,7 +86,7 @@ public:
 public:
     ///@brief Selects a random side of possibles sides
     ///and append it to the current sequence.
-    ///@returns The side selected.
+    ///@returns The side selected - In range of [0, sidesCount).
     int generateNextSide();
 
 
