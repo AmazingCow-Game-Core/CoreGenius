@@ -44,6 +44,7 @@
 //Usings
 USING_NS_COREGENIUS;
 
+
 // CTOR/DTOR //
 GameCore::GameCore(int sidesCount, int seed /* kRandomSeed */) :
     //m_sequence - Set in generateNextSide
@@ -58,8 +59,8 @@ GameCore::GameCore(int sidesCount, int seed /* kRandomSeed */) :
 // Public Methods //
 int GameCore::generateNextSide()
 {
-    //Generate a random side in range (0, m_sidesCount).
-    int side = m_random.next(0, m_sidesCount);
+    //Generate a random side in range [0, m_sidesCount).
+    int side = m_random.next(0, m_sidesCount -1);
     m_sequence.push_back(side);
 
     return side;
