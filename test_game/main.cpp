@@ -47,27 +47,31 @@
 #include <cstdlib>
 #include "../include/CoreGenius.h"
 
+
 USING_NS_COREGENIUS;
 using namespace std;
+
 
 void usage()
 {
     cout << "Amazing Cow - CoreGenius Test Game" << endl;
     cout << "Usage:" << endl;
-    cout << "  <binary-name> [seed]" << endl;
-    cout << "Ex: ./testgame 2 //Init with seed 2" << endl;
+    cout << "  <binary-name> [sides] [seed]" << endl;
+    cout << "Ex: ./testgame 5 2 //Init with 5 sides, seed 2" << endl;
 
     exit(1);
 }
 
 int main(int argc, const char *argv[])
 {
-    if(argc != 2)
+    if(argc != 3)
         usage();
 
-    auto seed = atoi(argv[1]);
+    auto sides = atoi(argv[1]);
+    auto seed  = atoi(argv[2]);
 
-    GameCore core(4, seed);
+
+    GameCore core(sides, seed);
     core.generateNextSide();
 
     while(core.getStatus() != GameCore::Status::Wrong)
