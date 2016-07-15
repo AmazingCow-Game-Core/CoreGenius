@@ -1,6 +1,13 @@
 --------------------------------------------------------------------------------
 | Version 0.4.x                                                                |
 --------------------------------------------------------------------------------
+v0.4.1 - [Jul 15 2016]
+-- General --
+    - Update the mainpage.dox and README.md with the
+      correct amazing cow links.
+    - Start using the update_version script.
+
+--------------------------------------------------------------------------------
 v0.4.0 - [Apr 30 2016]
 -- General --
     - [BUGFIX] New GameCore selects the sides in the correct range.

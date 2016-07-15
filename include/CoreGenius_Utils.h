@@ -52,8 +52,11 @@
 //The core version number.
 #define COW_COREGENIUS_VERSION_MAJOR    "0"
 #define COW_COREGENIUS_VERSION_MINOR    "4"
-#define COW_COREGENIUS_VERSION_REVISION "0"
+#define COW_COREGENIUS_VERSION_REVISION "1"
 
-#define COW_COREGENIUS_VERSION "0.4.0"
+#define COW_COREGENIUS_VERSION       \
+    COW_COREGENIUS_VERSION_MAJOR "." \
+    COW_COREGENIUS_VERSION_MINOR "." \
+    COW_COREGENIUS_VERSION_REVISION
 
 #endif // defined(__CoreGenius_include_CoreGenius_Utils_h__) //
